@@ -17,9 +17,9 @@
   --navy:#272261;      --navy-dark:#1A1747;  --navy-deeper:#100F2E;
   --navy-light:#342E82; --navy-glow:rgba(39,34,97,.35);
   --gold:#D2AB40;       --gold-light:#E4C468; --gold-dark:#A8852A;
-  --gold-glow:rgba(210,171,64,.32);
+  --gold-glow:rgba(210,171,64,.4);
   --black:#0C0B1A;      --charcoal:#181724;
-  --smoke:#F4F3FA;      --white:#FFFFFF;
+  --smoke:#F4F3FA;      --cream:#FBF6E9;      --white:#FFFFFF;
   --text:#1A1930;       --muted:#5E5C7A;
   --border:rgba(39,34,97,.10);
   --nav-h:80px;
@@ -40,10 +40,10 @@ ul{list-style:none}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
 .btn{display:inline-flex;align-items:center;gap:9px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;padding:15px 28px;border-radius:100px;transition:all .25s var(--spring);white-space:nowrap}
-.btn-gold{background:linear-gradient(135deg,var(--gold-light),var(--gold));color:var(--navy-deeper);box-shadow:0 8px 24px var(--gold-glow)}
-.btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 32px var(--gold-glow)}
-.btn-navy{background:var(--navy);color:#fff;box-shadow:0 8px 24px var(--navy-glow)}
-.btn-navy:hover{background:var(--navy-light);transform:translateY(-2px);box-shadow:0 12px 32px var(--navy-glow)}
+.btn-gold{background:linear-gradient(135deg,var(--gold-light),var(--gold) 60%,var(--gold-dark));color:var(--navy-deeper);box-shadow:0 8px 26px var(--gold-glow)}
+.btn-gold:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 14px 36px var(--gold-glow)}
+.btn-navy{background:linear-gradient(135deg,var(--navy),var(--navy-dark));color:#fff;box-shadow:0 8px 24px var(--navy-glow)}
+.btn-navy:hover{background:linear-gradient(135deg,var(--navy-light),var(--navy));transform:translateY(-3px) scale(1.02);box-shadow:0 14px 32px var(--navy-glow)}
 .btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55)}
 .btn-outline:hover{background:rgba(255,255,255,.12);border-color:#fff}
 .btn-sm{padding:11px 20px;font-size:11px}
@@ -52,9 +52,9 @@ ul{list-style:none}
 .link-arrow i{font-size:11px}
 .link-arrow.on-dark{color:#fff}
 
-.eyebrow{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-dark);display:flex;align-items:center;gap:10px;margin-bottom:14px}
-.eyebrow::before{content:'';width:24px;height:2px;background:var(--gold);flex-shrink:0}
-.eyebrow.on-dark{color:var(--gold)}
+.eyebrow{font-family:'Montserrat',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-dark);display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;background:linear-gradient(135deg,rgba(210,171,64,.16),rgba(210,171,64,.08));padding:7px 16px 7px 12px;border-radius:100px;border:1px solid rgba(210,171,64,.25)}
+.eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,var(--gold-light),var(--gold-dark));flex-shrink:0;box-shadow:0 0 8px var(--gold-glow)}
+.eyebrow.on-dark{color:var(--gold-light);background:rgba(255,255,255,.08);border-color:rgba(210,171,64,.3)}
 .eyebrow.center{justify-content:center}
 h2.title{font-family:'Montserrat',sans-serif;font-weight:800;line-height:1.1;letter-spacing:-.01em;font-size:clamp(1.9rem,3.6vw,2.9rem);color:var(--text)}
 h2.title.on-dark{color:#fff}
@@ -89,7 +89,8 @@ h2.title.on-dark{color:#fff}
 #hero{position:relative;min-height:92vh;overflow:hidden;background:var(--navy-deeper) url('https://ik.imagekit.io/vddpcxj7e/elhc/IMG_5260.JPG?tr=f-auto,q-auto,w-1400') center/cover no-repeat}
 .hero-video{position:absolute;inset:0;z-index:0}
 .hero-video video{width:100%;height:100%;object-fit:cover}
-.hero-ov{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(16,15,46,.78) 0%,rgba(16,15,46,.35) 45%,rgba(16,15,46,.88) 100%)}
+.hero-ov{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(16,15,46,.78) 0%,rgba(16,15,46,.32) 45%,rgba(16,15,46,.9) 100%)}
+.hero-glow{position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 700px 500px at 20% 30%,rgba(210,171,64,.16) 0%,transparent 65%);pointer-events:none}
 .hero-content{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;min-height:92vh;padding:calc(var(--nav-h) + 40px) 0 170px;max-width:760px}
 .hero-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2.6rem,6.4vw,4.6rem);line-height:1.04;letter-spacing:-.02em;color:#fff;margin-bottom:22px;text-shadow:0 2px 24px rgba(0,0,0,.4)}
 .hero-title .accent{background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -109,20 +110,26 @@ h2.title.on-dark{color:#fff}
 .stream-actions{display:flex;align-items:center;gap:18px;flex-shrink:0}
 
 /* ── MINISTRIES ── */
-#ministries{padding:160px 0 100px;background:var(--white)}
-.min-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
+#ministries{padding:160px 0 100px;background:var(--white);position:relative;overflow:hidden}
+#ministries::before{content:'';position:absolute;top:-180px;left:-160px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(210,171,64,.12) 0%,transparent 70%);pointer-events:none}
+.min-grid{position:relative;z-index:1;display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
 .min-icons{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.min-item{padding:26px 20px;border:1px solid var(--border);border-radius:var(--r);transition:transform .25s var(--ease),box-shadow .25s,border-color .25s}
-.min-item:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(39,34,97,.1);border-color:transparent}
-.min-icon{width:42px;height:42px;border-radius:10px;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:16px}
+.min-item{position:relative;padding:28px 20px;background:var(--white);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:transform .3s var(--spring),box-shadow .3s,border-color .3s}
+.min-item::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.min-item:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(39,34,97,.14);border-color:transparent}
+.min-item:hover::before{transform:scaleX(1)}
+.min-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--navy-light),var(--navy) 70%);color:var(--gold-light);display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:16px;box-shadow:0 8px 18px var(--navy-glow);transition:transform .3s var(--spring)}
+.min-item:hover .min-icon{transform:scale(1.1) rotate(-6deg)}
 .min-item h3{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;color:var(--text);margin-bottom:6px}
 .min-item p{font-size:12.5px;line-height:1.6;color:var(--muted)}
 
 /* ── VISIT / SCHEDULE ── */
-#visit{padding:100px 0;background:var(--smoke)}
-.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+#visit{padding:100px 0;background:linear-gradient(175deg,var(--cream) 0%,var(--smoke) 100%);position:relative;overflow:hidden}
+#visit::before{content:'';position:absolute;bottom:-200px;right:-180px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(39,34,97,.08) 0%,transparent 70%);pointer-events:none}
+.visit-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
 .visit-times{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
-.time-card{background:#fff;border-radius:var(--r);padding:22px;text-align:center;box-shadow:0 4px 20px rgba(39,34,97,.07)}
+.time-card{background:#fff;border-radius:var(--r);padding:22px;text-align:center;box-shadow:0 4px 20px rgba(39,34,97,.07);border-top:3px solid var(--gold);transition:transform .25s var(--ease),box-shadow .25s}
+.time-card:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(39,34,97,.14)}
 .time-day{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:6px}
 .time-val{font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:800;color:var(--navy)}
 .time-sub{font-size:12px;color:var(--muted);margin-top:3px}
@@ -133,22 +140,51 @@ h2.title.on-dark{color:#fff}
 .visit-map iframe{width:100%;height:420px;border:none;display:block}
 
 /* ── SERMONS ── */
-#sermons{padding:100px 0;background:var(--white)}
-.sec-hdr{text-align:center;max-width:640px;margin:0 auto 56px}
-.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+#sermons{padding:100px 0;background:var(--white);position:relative;overflow:hidden}
+#sermons::before{content:'';position:absolute;top:-160px;right:-140px;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,rgba(210,171,64,.1) 0%,transparent 70%);pointer-events:none}
+.sec-hdr{position:relative;z-index:1;text-align:center;max-width:640px;margin:0 auto 56px}
+.card-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
 .msg-card{border-radius:var(--r);overflow:hidden;background:#fff;box-shadow:0 4px 24px rgba(39,34,97,.08);transition:transform .3s var(--ease),box-shadow .3s}
-.msg-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(39,34,97,.16)}
-.msg-img{aspect-ratio:4/3;overflow:hidden}
+.msg-card:hover{transform:translateY(-8px);box-shadow:0 24px 52px rgba(39,34,97,.18)}
+.msg-img{aspect-ratio:4/3;overflow:hidden;position:relative}
 .msg-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
-.msg-card:hover .msg-img img{transform:scale(1.06)}
+.msg-card:hover .msg-img img{transform:scale(1.08)}
 .msg-body{padding:22px 22px 24px}
-.msg-tag{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:8px}
+.msg-tag{display:inline-block;font-family:'Montserrat',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-dark);background:rgba(210,171,64,.14);padding:5px 12px;border-radius:100px;margin-bottom:12px}
 .msg-title{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:var(--text);margin-bottom:8px;line-height:1.3}
 .msg-meta{font-size:12px;color:var(--muted);margin-bottom:16px}
 
+/* ── GALLERY ── */
+#gallery{padding:110px 0;background:linear-gradient(175deg,#FFFDF8 0%,var(--cream) 100%);position:relative;overflow:hidden}
+#gallery::before{content:'';position:absolute;top:-220px;left:-160px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(210,171,64,.14) 0%,transparent 70%);pointer-events:none}
+#gallery::after{content:'';position:absolute;bottom:-220px;right:-160px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(39,34,97,.1) 0%,transparent 70%);pointer-events:none}
+#gallery .container{position:relative;z-index:1}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:150px;gap:14px}
+.gallery-item{position:relative;display:block;border-radius:var(--r);overflow:hidden;cursor:pointer;box-shadow:0 6px 22px rgba(39,34,97,.1)}
+.gallery-item:nth-child(1){grid-column:span 2;grid-row:span 2}
+.gallery-item:nth-child(6){grid-column:span 2}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease),filter .4s}
+.gallery-item:hover img{transform:scale(1.1);filter:brightness(1.05) saturate(1.1)}
+.gallery-item::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,15,46,0) 45%,rgba(16,15,46,.65) 100%);opacity:0;transition:opacity .35s}
+.gallery-item:hover::after{opacity:1}
+.gallery-zoom{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;opacity:0;transform:scale(.6);transition:opacity .3s,transform .3s var(--spring)}
+.gallery-item:hover .gallery-zoom{opacity:1;transform:scale(1)}
+
+/* ── LIGHTBOX ── */
+.lightbox{position:fixed;inset:0;z-index:600;background:rgba(12,11,26,.96);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
+.lightbox.open{opacity:1;pointer-events:all}
+.lightbox img{max-width:88vw;max-height:82vh;border-radius:var(--r);box-shadow:0 30px 90px rgba(0,0,0,.5);object-fit:contain}
+.lb-close,.lb-arrow{position:absolute;border-radius:50%;background:rgba(255,255,255,.08);color:#fff;display:flex;align-items:center;justify-content:center;transition:all .2s var(--spring)}
+.lb-close:hover,.lb-arrow:hover{background:var(--gold);color:var(--navy-deeper)}
+.lb-close{top:22px;right:22px;width:44px;height:44px;font-size:16px}
+.lb-arrow{top:50%;transform:translateY(-50%);width:48px;height:48px;font-size:16px}
+.lb-prev{left:22px}.lb-next{right:22px}
+.lb-counter{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.6);font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:.1em}
+
 /* ── GIVE CTA ── */
 #give{padding:110px 0;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-dark) 55%,var(--navy-deeper) 100%);position:relative;overflow:hidden;text-align:center}
-.give-glow{position:absolute;top:-160px;right:-160px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(210,171,64,.12) 0%,transparent 70%)}
+.give-glow{position:absolute;top:-160px;right:-160px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(210,171,64,.16) 0%,transparent 70%)}
+.give-glow-2{position:absolute;bottom:-180px;left:-160px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(228,196,104,.12) 0%,transparent 70%)}
 #give .container{position:relative;z-index:1}
 .give-verse{font-style:italic;font-size:14.5px;color:rgba(255,255,255,.5);margin-top:28px}
 
@@ -185,11 +221,17 @@ h2.title.on-dark{color:#fff}
   .min-icons{grid-template-columns:1fr 1fr}
   .card-grid{grid-template-columns:1fr}
   .visit-times{grid-template-columns:1fr 1fr}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}
+  .gallery-item:nth-child(1){grid-column:span 2;grid-row:span 1}
+  .gallery-item:nth-child(6){grid-column:span 2}
 }
 @media(max-width:480px){
   .min-icons{grid-template-columns:1fr}
   .foot-top{grid-template-columns:1fr}
   .hero-actions .btn{width:100%;justify-content:center}
+  .gallery-grid{grid-template-columns:1fr;grid-auto-rows:200px}
+  .gallery-item:nth-child(1),.gallery-item:nth-child(6){grid-column:span 1}
+  .lb-arrow{width:40px;height:40px;font-size:14px}
 }
 </style>
 </head>
@@ -206,6 +248,7 @@ h2.title.on-dark{color:#fff}
       <li><a href="https://elhc.life/who-we-are/">About</a></li>
       <li><a href="#sermons">Sermons</a></li>
       <li><a href="https://elhc.life/elife-registration/">E-Life</a></li>
+      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#visit">Visit</a></li>
     </ul>
     <div class="nav-right">
@@ -220,6 +263,7 @@ h2.title.on-dark{color:#fff}
   <a href="https://elhc.life/who-we-are/" class="mob-link">About</a>
   <a href="#sermons" class="mob-link">Sermons</a>
   <a href="https://elhc.life/elife-registration/" class="mob-link">E-Life</a>
+  <a href="#gallery" class="mob-link">Gallery</a>
   <a href="#visit" class="mob-link">Visit</a>
   <a href="https://elhc.churchcenter.com/giving?open-in-church-center-modal=true" target="_blank" rel="noopener" class="mob-link" style="color:var(--gold)">Give</a>
 </div>
@@ -232,6 +276,7 @@ h2.title.on-dark{color:#fff}
     </video>
   </div>
   <div class="hero-ov" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
   <div class="container hero-content">
     <p class="eyebrow on-dark">Knoxville, Tennessee</p>
     <h1 class="hero-title">A Place You Can<br/>Call <span class="accent">Home</span></h1>
@@ -347,9 +392,39 @@ h2.title.on-dark{color:#fff}
   </div>
 </section>
 
+<!-- GALLERY -->
+<section id="gallery" aria-labelledby="gal-h">
+  <div class="container">
+    <div class="sec-hdr reveal">
+      <p class="eyebrow center">Community Life</p>
+      <h2 class="title" id="gal-h">Life at ELHC</h2>
+      <p class="body-text" style="margin:16px auto 0;text-align:center;">A glimpse into worship, community, and the moments that define who we are.</p>
+    </div>
+    <div class="gallery-grid reveal" id="galleryGrid">
+      <a class="gallery-item" href="#" data-index="0"><img src="https://ik.imagekit.io/vddpcxj7e/elhc/IMG_5191.JPG?tr=f-auto,q-auto,w-1200" alt="Life at ELHC" loading="lazy"/><span class="gallery-zoom"><i class="fa-solid fa-expand"></i></span></a>
+      <a class="gallery-item" href="#" data-index="1"><img src="https://ik.imagekit.io/vddpcxj7e/elhc/IMG_5217.JPG?tr=f-auto,q-auto,w-1200" alt="Life at ELHC" loading="lazy"/><span class="gallery-zoom"><i class="fa-solid fa-expand"></i></span></a>
+      <a class="gallery-item" href="#" data-index="2"><img src="https://ik.imagekit.io/vddpcxj7e/elhc/IMG_5240.JPG?tr=f-auto,q-auto,w-1200" alt="Life at ELHC" loading="lazy"/><span class="gallery-zoom"><i class="fa-solid fa-expand"></i></span></a>
+      <a class="gallery-item" href="#" data-index="3"><img src="https://ik.imagekit.io/vddpcxj7e/elhc/IMG_5188.JPG?tr=f-auto,q-auto,w-1200" alt="Life at ELHC" loading="lazy"/><span class="gallery-zoom"><i class="fa-solid fa-expand"></i></span></a>
+      <a class="gallery-item" href="#" data-index="4"><img src="https://ik.imagekit.io/vddpcxj7e/elhc/IMG_5244.JPG?tr=f-auto,q-auto,w-1200" alt="Life at ELHC" loading="lazy"/><span class="gallery-zoom"><i class="fa-solid fa-expand"></i></span></a>
+      <a class="gallery-item" href="#" data-index="5"><img src="https://ik.imagekit.io/vddpcxj7e/elhc/IMG_5252.JPG?tr=f-auto,q-auto,w-1200" alt="Life at ELHC" loading="lazy"/><span class="gallery-zoom"><i class="fa-solid fa-expand"></i></span></a>
+      <a class="gallery-item" href="#" data-index="6"><img src="https://ik.imagekit.io/vddpcxj7e/elhc/IMG_5260.JPG?tr=f-auto,q-auto,w-1200" alt="Life at ELHC" loading="lazy"/><span class="gallery-zoom"><i class="fa-solid fa-expand"></i></span></a>
+      <a class="gallery-item" href="#" data-index="7"><img src="https://ik.imagekit.io/vddpcxj7e/elhc/IMG_5226.JPG?tr=f-auto,q-auto,w-1200" alt="Life at ELHC" loading="lazy"/><span class="gallery-zoom"><i class="fa-solid fa-expand"></i></span></a>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Gallery image viewer">
+  <button class="lb-close" id="lbClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+  <button class="lb-arrow lb-prev" id="lbPrev" aria-label="Previous image"><i class="fa-solid fa-chevron-left"></i></button>
+  <img id="lbImage" src="" alt="Gallery image"/>
+  <button class="lb-arrow lb-next" id="lbNext" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></button>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
 <!-- GIVE -->
 <section id="give">
   <div class="give-glow" aria-hidden="true"></div>
+  <div class="give-glow-2" aria-hidden="true"></div>
   <div class="container">
     <p class="eyebrow on-dark center">Generosity</p>
     <h2 class="title on-dark" style="margin-bottom:18px;">Partner With God's Work</h2>
@@ -379,6 +454,7 @@ h2.title.on-dark{color:#fff}
           <li><a href="https://elhc.life/who-we-are/">Who We Are</a></li>
           <li><a href="#sermons">Sermons</a></li>
           <li><a href="https://elhc.life/elife-registration/">E-Life</a></li>
+          <li><a href="#gallery">Gallery</a></li>
         </ul>
       </nav>
       <nav>
@@ -419,6 +495,35 @@ const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
 }, {threshold:.15});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ── Gallery Lightbox ── */
+const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+const lightbox = document.getElementById('lightbox');
+const lbImage = document.getElementById('lbImage');
+const lbCounter = document.getElementById('lbCounter');
+let lbIndex = 0;
+function openLb(i){
+  lbIndex = i;
+  const img = galleryItems[lbIndex].querySelector('img');
+  lbImage.src = img.src;
+  lbImage.alt = img.alt;
+  lbCounter.textContent = `${lbIndex + 1} / ${galleryItems.length}`;
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLb(){ lightbox.classList.remove('open'); document.body.style.overflow = ''; }
+function stepLb(dir){ openLb((lbIndex + dir + galleryItems.length) % galleryItems.length); }
+galleryItems.forEach((item, i) => item.addEventListener('click', e => { e.preventDefault(); openLb(i); }));
+document.getElementById('lbClose').addEventListener('click', closeLb);
+document.getElementById('lbPrev').addEventListener('click', () => stepLb(-1));
+document.getElementById('lbNext').addEventListener('click', () => stepLb(1));
+lightbox.addEventListener('click', e => { if(e.target === lightbox) closeLb(); });
+document.addEventListener('keydown', e => {
+  if(!lightbox.classList.contains('open')) return;
+  if(e.key === 'Escape') closeLb();
+  if(e.key === 'ArrowLeft') stepLb(-1);
+  if(e.key === 'ArrowRight') stepLb(1);
+});
 </script>
 </body>
 </html>
