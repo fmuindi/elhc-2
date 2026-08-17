@@ -91,10 +91,9 @@ h2.title{font-family:'Montserrat',sans-serif;font-weight:800;line-height:1.1;let
     linear-gradient(100deg,rgba(16,15,46,.92) 0%,rgba(16,15,46,.72) 38%,rgba(16,15,46,.38) 68%,rgba(16,15,46,.55) 100%),
     linear-gradient(180deg,rgba(16,15,46,.55) 0%,rgba(16,15,46,.1) 40%,rgba(16,15,46,.95) 100%);
 }
-.hero-glow{position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 700px 500px at 15% 30%,rgba(210,171,64,.14) 0%,transparent 65%);pointer-events:none}
 .hero-content{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;min-height:92vh;padding:calc(var(--nav-h) + 40px) 0 170px;max-width:760px}
 .hero-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2.6rem,6.4vw,4.6rem);line-height:1.04;letter-spacing:-.02em;color:#fff;margin-bottom:22px;text-shadow:0 4px 28px rgba(16,15,46,.85),0 1px 0 rgba(16,15,46,.6)}
-.hero-title .accent{background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 3px 14px rgba(16,15,46,.7))}
+.hero-title .accent{color:var(--gold);filter:drop-shadow(0 3px 14px rgba(16,15,46,.7))}
 .hero-sub{font-size:clamp(1rem,1.6vw,1.2rem);color:rgba(255,255,255,.92);max-width:520px;line-height:1.7;margin-bottom:36px;text-shadow:0 2px 16px rgba(16,15,46,.8)}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
 
@@ -112,7 +111,6 @@ h2.title{font-family:'Montserrat',sans-serif;font-weight:800;line-height:1.1;let
 
 /* ── MINISTRIES ── */
 #ministries{padding:160px 0 100px;background:var(--navy-deeper);position:relative;overflow:hidden}
-#ministries::before{content:'';position:absolute;top:-180px;left:-160px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(210,171,64,.14) 0%,transparent 70%);pointer-events:none}
 .min-grid{position:relative;z-index:1;display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
 .min-icons{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .min-item{position:relative;padding:28px 20px;background:var(--surface);backdrop-filter:blur(16px);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:transform .3s var(--spring),box-shadow .3s,border-color .3s,background .3s}
@@ -126,7 +124,6 @@ h2.title{font-family:'Montserrat',sans-serif;font-weight:800;line-height:1.1;let
 
 /* ── VISIT / SCHEDULE ── */
 #visit{padding:100px 0;background:linear-gradient(175deg,var(--charcoal) 0%,var(--navy-deeper) 100%);position:relative;overflow:hidden}
-#visit::before{content:'';position:absolute;bottom:-200px;right:-180px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(210,171,64,.1) 0%,transparent 70%);pointer-events:none}
 .visit-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
 .visit-times{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
 .time-card{background:var(--surface);backdrop-filter:blur(16px);border:1px solid var(--border);border-radius:var(--r);padding:22px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.3);border-top:3px solid var(--gold);transition:transform .25s var(--ease),box-shadow .25s}
@@ -142,7 +139,6 @@ h2.title{font-family:'Montserrat',sans-serif;font-weight:800;line-height:1.1;let
 
 /* ── SERMONS ── */
 #sermons{padding:100px 0;background:var(--charcoal);position:relative;overflow:hidden}
-#sermons::before{content:'';position:absolute;top:-160px;right:-140px;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,rgba(210,171,64,.12) 0%,transparent 70%);pointer-events:none}
 .sec-hdr{position:relative;z-index:1;text-align:center;max-width:640px;margin:0 auto 56px}
 .card-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
 .msg-card{border-radius:var(--r);overflow:hidden;background:var(--surface);backdrop-filter:blur(16px);border:1px solid var(--border);box-shadow:0 4px 24px rgba(0,0,0,.35);transition:transform .3s var(--ease),box-shadow .3s,border-color .3s}
@@ -157,8 +153,6 @@ h2.title{font-family:'Montserrat',sans-serif;font-weight:800;line-height:1.1;let
 
 /* ── GALLERY ── */
 #gallery{padding:110px 0;background:linear-gradient(175deg,var(--navy-deeper) 0%,var(--charcoal) 100%);position:relative;overflow:hidden}
-#gallery::before{content:'';position:absolute;top:-220px;left:-160px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(210,171,64,.16) 0%,transparent 70%);pointer-events:none}
-#gallery::after{content:'';position:absolute;bottom:-220px;right:-160px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(52,46,130,.35) 0%,transparent 70%);pointer-events:none}
 #gallery .container{position:relative;z-index:1}
 .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:150px;gap:14px}
 .gallery-item{position:relative;display:block;border-radius:var(--r);overflow:hidden;cursor:pointer;box-shadow:0 8px 26px rgba(0,0,0,.4);border:1px solid var(--border)}
@@ -184,8 +178,6 @@ h2.title{font-family:'Montserrat',sans-serif;font-weight:800;line-height:1.1;let
 
 /* ── GIVE CTA ── */
 #give{padding:110px 0;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-dark) 55%,var(--navy-deeper) 100%);position:relative;overflow:hidden;text-align:center}
-.give-glow{position:absolute;top:-160px;right:-160px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(210,171,64,.16) 0%,transparent 70%)}
-.give-glow-2{position:absolute;bottom:-180px;left:-160px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(228,196,104,.12) 0%,transparent 70%)}
 #give .container{position:relative;z-index:1}
 .give-verse{font-style:italic;font-size:14.5px;color:rgba(255,255,255,.5);margin-top:28px}
 
@@ -277,7 +269,6 @@ h2.title{font-family:'Montserrat',sans-serif;font-weight:800;line-height:1.1;let
     </video>
   </div>
   <div class="hero-ov" aria-hidden="true"></div>
-  <div class="hero-glow" aria-hidden="true"></div>
   <div class="container hero-content">
     <h1 class="hero-title">A Place You Can<br/>Call <span class="accent">Home</span></h1>
     <p class="hero-sub">Love God. Love Others. Passionately. We're a house of second chances, reaching the hurting, broken, and hopeless — and helping them heal.</p>
@@ -423,8 +414,6 @@ h2.title{font-family:'Montserrat',sans-serif;font-weight:800;line-height:1.1;let
 
 <!-- GIVE -->
 <section id="give">
-  <div class="give-glow" aria-hidden="true"></div>
-  <div class="give-glow-2" aria-hidden="true"></div>
   <div class="container">
     <p class="eyebrow center">Generosity</p>
     <h2 class="title" style="margin-bottom:18px;">Partner With God's Work</h2>
